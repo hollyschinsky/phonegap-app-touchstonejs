@@ -18,8 +18,8 @@ and start a preview server at [localhost:8000](http://localhost:8000).
 
 ![](resources/screenshots/ss4.png)
 ![](resources/screenshots/ss.png)
-![](resources/screenshots/ss2.png)
 ![](resources/screenshots/ss3.png)
+![](resources/screenshots/ss2.png)
 
 
 
