@@ -16,12 +16,10 @@ and start a preview server at [localhost:8000](http://localhost:8000).
 2. `cordova platform add ios (or cordova platform add android)` 
 3. `cordova run` 
 
-
+![](resources/screenshots/ss4.png)
 ![](resources/screenshots/ss.png)
-![](resources/screenshots/ss1.png)
 ![](resources/screenshots/ss2.png)
 ![](resources/screenshots/ss3.png)
-![](resources/screenshots/ss4.png)
 
 
 
