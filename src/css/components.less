@@ -1,0 +1,47 @@
+// 
+// Components
+// ==============================
+
+// Holly's Notes - could override components here or in variables.less locally specify the values wanted and include that variables.less
+// in app.less
+
+// Title
+// ---------------------------
+
+
+// This is the default nav bar with the addition of the color attribute since it's not in core default
+.NavigationBar {
+  color: @headerbar-color;
+
+}
+// Tab bar
+// ------------------------------
+
+.Tabs-Icon--lists::before {
+	content: @ionicon-var-ios-list-outline;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-list;
+	}
+}
+.Tabs-Icon--forms::before {
+	content: @ionicon-var-ios-copy-outline;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-copy;
+	}
+}
+.Tabs-Icon--controls::before {
+	content: @ionicon-var-ios-settings;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-settings-strong;
+	}
+}
+.Tabs-Icon--transitions::before {
+	content: @ionicon-var-ios-browsers-outline;
+
+	.is-selected > & {
+		content: @ionicon-var-ios-browsers;
+	}
+}

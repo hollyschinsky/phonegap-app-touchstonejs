@@ -1,0 +1,67 @@
+//
+// Variables
+// ==============================
+
+
+
+
+// Headerbar
+// ------------------------------
+
+// Holly's Notes - Customize the Navigation Header Here to override variables already used in components you want to change.
+// I wanted to change the headerbar font color but it didn't work by just setting headerbar-color here because it's not used
+// in the NavigationBar.less file in the core Touchstone UI definition - only the bg color so it inherits black from body.
+// Must override in components file.
+
+// Check out the different color definitions and other variables in variables.less - app-primary etc
+//@app-primary:                   @blue;
+//@app-muted:                     @gray-light;
+//@app-success:                   @green;
+//@app-info:                      @light-blue;
+//@app-warning:                   @yellow;
+@app-danger: #ec0312;             // Holly's custom red for demo
+
+
+@statusbar-height:           20px;
+
+//@headerbar-bg: #2858fa;
+//#d233c
+@headerbar-bg: #8e42ac;
+@headerbar-color:            white; // this isn't used yet in core component so have to add into components.less
+@headerbar-height:           44px;
+@headerbar-button-color:     @headerbar-color; // Holly - overrode this from app-primary since blue collided
+@headerbar-button-color-disabled:    #ccc;
+
+@headerbar-inverted-color:           white;
+@headerbar-inverted-button-color:    white;
+@headerbar-inverted-button-color-disabled:    fade(white, 40%);
+
+@headerbar-field-gutter:     8px;
+@headerbar-field-height:     28px;
+
+
+// Footerbar
+// ------------------------------
+
+@footerbar-bg:                       @headerbar-bg;
+@footerbar-color:                    @headerbar-color;
+@footerbar-height:                   @headerbar-height;
+@footerbar-button-color:             @gray;
+@footerbar-button-color-disabled:    #ccc;
+@footerbar-button-color-selected:    @headerbar-color; // Holly - overrode this from app-primary since blue collided
+
+
+
+
+// Forms
+// ------------------------------
+
+@field-color:                 @text-color;
+@field-border:                #ddd;
+@field-border-focus:          darken(@field-border, 10%);
+@field-placeholder:           #c7c7cd;
+@field-label-color:           @gray;
+
+@field-height:                44px;
+@field-padding-vertical:      @padding-base-vertical;
+@field-padding-horizontal:    @padding-base-horizontal;

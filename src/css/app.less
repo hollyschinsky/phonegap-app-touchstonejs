@@ -1,0 +1,46 @@
+//
+// App
+// ==============================
+
+
+
+
+@import "ionicons/ionicons.less";
+@import "../../node_modules/touchstonejs/less/touchstone.less";
+@import "../../node_modules/react-container/less/component.less";
+@import "views/media.less";
+
+@import "components.less";
+@import "demo.less";
+@import "variables.less";
+
+
+
+
+// 
+// Mixins
+// ==============================
+
+
+
+
+// Avatars
+// ------------------------------
+body {
+  background-color: white;
+}
+.avatar(@size) {
+    .square(@size);
+	background: fade(@text-color, 10%);
+	border-radius: 50%;
+	border: 2px solid fade(@text-color, 20%);
+	padding: 5px;
+}
+
+.mediaImg(@width,@height) {
+  .size(@width,@height);
+  background: fade(@text-color, 10%);
+  border: 2px solid fade(@text-color, 20%);
+  padding: 2px;
+  margin: 5px;
+}
