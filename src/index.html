@@ -12,15 +12,9 @@
 			* Enable inline JS: add 'unsafe-inline' to default-src
 	-->
 	<head>
-		<!--- Debug CSP -->
-		<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' * 'unsafe-inline'; img-src * data:; connect-src *; style-src 'self' 'unsafe-inline';">-->
-
-		<!-- Had to modify the starter app sample to add a couple more to content list -->
+		<!--- Debug CSP - Modify for production -->
 		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src *; media-src *; script-src 'self' * 'unsafe-inline'; img-src * data:; connect-src *; style-src 'self' 'unsafe-inline';">
 
-		<!--- Production CSP
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data:; connect-src *; style-src 'self' 'unsafe-inline';">
-		-->
 
 		<link rel="stylesheet" type="text/css" href="css/app.css">
 		<title>Touchstonejs Demo</title>

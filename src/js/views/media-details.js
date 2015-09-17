@@ -5,6 +5,8 @@ import Container from 'react-container';
 import React from 'react';
 import { Link, UI } from 'touchstonejs';
 
+const scrollable = Container.initScrollable();
+
 module.exports = React.createClass({
     statics: {
         navigationBar: 'main',
@@ -13,7 +15,7 @@ module.exports = React.createClass({
             return {
                 leftArrow: true,
                 leftLabel: leftLabel,
-                leftAction: () => { app.transitionTo('listvm:' + props.prevView, { transition: 'reveal-from-right' }) },
+                leftAction: () => { app.transitionTo('tabs:' + props.prevView, { transition: 'reveal-from-right' }) },
                 title: 'Details'
             }
         }
@@ -25,7 +27,7 @@ module.exports = React.createClass({
         }
     },
 
-    preview () {
+    openURL (event) {
         var mediaUrl = this.props.item.trackViewUrl;
         if (!window.cordova)
             window.open(mediaUrl)
@@ -53,7 +55,7 @@ module.exports = React.createClass({
 
 
         return (
-            <Container scrollable ref="scrollContainer">
+            <Container scrollable={scrollable}>
                 <UI.Group>
                     <UI.GroupHeader className="text-primary">{item.kind}</UI.GroupHeader>
                     <UI.GroupBody>
@@ -61,9 +63,9 @@ module.exports = React.createClass({
                         <UI.LabelInput readOnly label="Item Name" value={item.trackName}/>
                         <UI.LabelInput readOnly label="Artist" value={item.artistName}/>
                         <UI.LabelInput readOnly label="Genre" value={item.primaryGenreName}/>
-                        <UI.LabelInput readOnly label="Collection Name" value={item.collectionName}/>
+                        <UI.LabelInput readOnly label="Collection" value={item.collectionName}/>
                         <UI.LabelInput readOnly label="Item Price" value={item.trackPrice}/>
-                        <UI.LabelInput readOnly label="Release Date" value={item.releaseDate}/>
+                        <UI.LabelInput readOnly label="Released" value={item.releaseDate}/>
                         <UI.Item>
                             <UI.ItemInner>
                                 <UI.FieldLabel>Explicit?</UI.FieldLabel>
@@ -76,18 +78,17 @@ module.exports = React.createClass({
                             </UI.ItemInner>
                         </UI.Item>
                         <UI.Item style={{display:videoVal}}> 
-                            <video controls width="350" height="100" src={item.previewUrl} type="video/mp4"> 
+                            <video controls width="350" src={item.previewUrl} type="video/mp4"> 
                             </video>
                          </UI.Item>
                         <UI.Item>
                             <UI.ItemInner>
-                                <UI.Button onTap={this.preview.bind(this)}>
-                                    <UI.ItemNote label="Show in iTunes" icon="ion-share" type="primary">  </UI.ItemNote>
+                                <UI.Button onTap={this.openURL.bind(this,this.props.item.trackViewUrl)}>
+                                    <UI.ItemNote label="Open in iTunes" icon="ion-share" type="info"></UI.ItemNote>
                                 </UI.Button>
                             </UI.ItemInner>
                         </UI.Item>
                     </UI.GroupBody>
-
                     <UI.GroupFooter>
                         Data based on the latest results from <a href="http://itunes.com">iTunes</a>
                     </UI.GroupFooter>

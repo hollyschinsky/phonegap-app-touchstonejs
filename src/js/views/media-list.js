@@ -22,7 +22,7 @@ var SimpleLinkItem = React.createClass({
 			className = "movie__avatar_sm";
 
 			return (
-			<Link to="listvm:media-details" transition="show-from-right" viewProps={{ item: this.props.item, prevView: 'media-list'}} >
+			<Link to="tabs:media-details" transition="show-from-right" viewProps={{ item: this.props.item, prevView: 'media-list'}} >
 				<UI.Item showDisclosureArrow>
 					<img src={item.artworkUrl60} className={className}/>
 					<UI.ItemInner>
@@ -46,7 +46,7 @@ module.exports = React.createClass({
 			return {
 				leftArrow: true,
 				leftLabel: 'Criteria',
-				leftAction: () => { app.transitionTo('listvm:criteria', { transition: 'reveal-from-right' }) },
+				leftAction: () => { app.transitionTo('tabs:criteria', { transition: 'reveal-from-right' }) },
 				title: 'Media Results'
 			}
 		}
@@ -65,6 +65,7 @@ module.exports = React.createClass({
 			});
 			var self = this;
 
+			// Using jsonp so we can run this in the browser without XHR issues for easier debugging
 			this.jsonp("https://itunes.apple.com/search?term=" + this.props.searchTerm + "&entity=" + this.props.mediaType + "&limit=" + this.props.numResults, function(data) {
 				self.setState({
 					popup: {

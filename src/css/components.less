@@ -9,39 +9,46 @@
 // ---------------------------
 
 
-// This is the default nav bar with the addition of the color attribute since it's not in core default
+// This is the default nav bar with the addition of the color attribute since it's not in the core default - HS
 .NavigationBar {
   color: @headerbar-color;
 
 }
+// Tab Item
+// ------------------------------
+// Overriding this from touchsstonejs/less/components/TabsNavigator.less
+.Tabs-Tab {
+
+
+  // when pressed
+  &.Tappable-active {
+	background-color: #cccccc;
+	color: #000000;
+  }
+
+  // selected tab
+  &.is-selected {
+	background-color: @footerbar-tab-bg-selected;
+	color: @footerbar-tab-color-selected;
+  }
+}
+
 // Tab bar
 // ------------------------------
 
-.Tabs-Icon--lists::before {
-	content: @ionicon-var-ios-list-outline;
-
-	.is-selected > & {
-		content: @ionicon-var-ios-list;
-	}
-}
-.Tabs-Icon--forms::before {
+.Tabs-Icon--form::before {
 	content: @ionicon-var-ios-copy-outline;
+
 
 	.is-selected > & {
 		content: @ionicon-var-ios-copy;
+
 	}
 }
-.Tabs-Icon--controls::before {
+.Tabs-Icon--settings::before {
 	content: @ionicon-var-ios-settings;
 
 	.is-selected > & {
 		content: @ionicon-var-ios-settings-strong;
-	}
-}
-.Tabs-Icon--transitions::before {
-	content: @ionicon-var-ios-browsers-outline;
-
-	.is-selected > & {
-		content: @ionicon-var-ios-browsers;
 	}
 }

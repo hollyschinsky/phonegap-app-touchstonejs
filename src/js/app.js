@@ -44,31 +44,112 @@ var App = React.createClass({
 
 // Main Controller
 // ------------------------------
-
 var MainViewController = React.createClass({
 	render () {
 		return (
 			<Container>
 				<UI.NavigationBar name="main" />
-				<ViewManager name="listvm" defaultView="criteria">
-					<View name="criteria" component={require('./views/criteria-form')} />
-					<View name="media-list" component={require('./views/media-list')} />
-					<View name="media-details" component={require('./views/media-details')} />
+				<ViewManager name="main" defaultView="tabs">
+					<View name="tabs" component={TabViewController} />
 				</ViewManager>
 			</Container>
 		);
 	}
 });
 
+// Tab View Controller
+// ------------------------------
+
+var lastSelectedTab = 'criteria'
+var TabViewController = React.createClass({
+
+
+	onViewChange (nextView) {
+		lastSelectedTab = nextView
+
+		this.setState({
+			selectedTab: nextView
+		});
+	},
+
+	selectTab (value) {
+		let viewProps;
+
+		this.refs.listvm.transitionTo(value, {
+			transition: 'instant',
+			viewProps: viewProps
+		});
+
+		this.setState({
+			selectedTab: value
+		})
+	},
+	getInitialState() {
+		return {
+			selectedTab: lastSelectedTab,
+			preferences: {
+				mediaType: 'song',
+				numResults: '25'
+			}
+		};
+	},
+	changePreference(key,val) {
+		this.setState(state => {
+			state.preferences[key]=val;
+			return state;
+		});
+	},
+	render () {
+		let selectedTab = this.state.selectedTab
+		let selectedTabSpan = selectedTab
+
+		// Subviews in the stack need to show the right tab selected
+		if (selectedTab === 'criteria' || selectedTab === 'media-list' || selectedTab === 'media-details' || selectedTab === 'about') {
+			selectedTabSpan = 'criteria';
+		}
+
+		else selectedTabSpan = 'settings';
+
+		return (
+			<Container>
+				<ViewManager ref="listvm" name="tabs" defaultView={selectedTab} onViewChange={this.onViewChange}>
+					<View name="about" component={require('./views/about')} />
+					<View name="criteria" component={require('./views/criteria-form')} preferences={this.state.preferences}/>
+					<View name="media-list" component={require('./views/media-list')} />
+					<View name="media-details" component={require('./views/media-details')} />
+					<View name="settings" component={require('./views/preferences')} preferences={this.state.preferences}
+						onChangePreference={(key,val) => this.changePreference(key,val)}/>
+				</ViewManager>
+
+				<UI.Tabs.Navigator>
+					<UI.Tabs.Tab onTap={this.selectTab.bind(this, 'criteria')} selected={selectedTabSpan === 'criteria'}>
+						<span className="Tabs-Icon Tabs-Icon--form" />
+						<UI.Tabs.Label>Search Media</UI.Tabs.Label>
+					</UI.Tabs.Tab>
+
+					<UI.Tabs.Tab onTap={this.selectTab.bind(this, 'settings')} selected={selectedTabSpan === 'settings'}>
+						<span className="Tabs-Icon Tabs-Icon--settings" />
+						<UI.Tabs.Label>Preferences</UI.Tabs.Label>
+					</UI.Tabs.Tab>
+				</UI.Tabs.Navigator>
+			</Container>
+		);
+	}
+});
+
 function startApp () {
-	// Setting the status bar style in the config.xml - could also set here but since it's specific to mobile only it will
-	// not have to run otherwise. Default causes black font to display, styleLightContent will make the font and battery white font.
-	// If you include the status bar plugin, the default is already light content, so you only need to specify the preference
-	// specifically in config.xml in the root if you want it to be black and set it to value of default
-	//if (window.StatusBar) {
-	//	window.StatusBar.styleLightContent();
-    //
-	//}
+
+	// Handle any cordova needs here
+
+	// If splash screen plugin is loaded and config.xml prefs have AutoHideSplashScreen set to false for iOS we need to
+	// programatically hide it here. Could include in a timeout if needed to load more resources or see a white screen
+	// display in between splash screen and app load. Remove or change as needed. Left timeout code for reference, timeout
+	// not needed in this case.
+	if (navigator.splashscreen) {
+		//setTimeout(function () {
+			navigator.splashscreen.hide();
+		//}, 1000);
+	}
 
 	React.render(<App />, document.getElementById('app'));
 }
