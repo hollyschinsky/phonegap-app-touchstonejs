@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "commonjs"		
+	},
+	"files": [
+		"app.js",
+		"config.js",
+		"stores/media.js",
+		"views/about.js",
+		"views/media-list.js",
+		"views/media-details.js",
+		"views/criteria-form.js",
+		"views/preferences.js"
+	]
+} 

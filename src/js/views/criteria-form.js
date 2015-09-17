@@ -47,7 +47,7 @@ module.exports = React.createClass({
 	
 	handleTypeChange (key, event) {
 		this.state.mediaType = event.target.value;
-		event.stopImmediatePropagation(); // won't stay selected if I don't stop it from propagated - may be bug in LabelSelect
+		event.stopPropagation(); // won't stay selected if I don't stop it from propagated - may be bug in LabelSelect
 	},
 
 	handleSearchTermChange (key, event) {
