@@ -35,7 +35,7 @@ module.exports = React.createClass({
 		return {
 			mediaType: this.props.preferences.mediaType,
 			numResults: this.props.preferences.numResults,
-			searchTerm: 'Jennifer Lopez'
+			searchTerm: 'Ed Sheeran'
 		}
 	},
 

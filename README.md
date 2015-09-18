@@ -1,16 +1,25 @@
-PhoneGap Sample App - iTunes Media Finder - Built with ReactJS/TouchstoneJS
-============================================================================
+PhoneGap Sample App using ReactJS/TouchstoneJS 
+==============================================
+This sample app is an iTunes Media Finder app built with ReactJS and TouchstoneJS. TouchstoneJS is a mobile UI framework built on top of 
+ReactJS/HTML5/CSS3 and Cordova. The sample allows you to search for songs, music videos or movies and preview them or open in iTunes. 
 
-TouchstoneJS Sample App for PhoneGap. An iTunes Media Finder - search for songs, movies or videos and preview them in app or open in iTunes. 
+### Built with
+1. ReactJS
+2. TouchstoneJS
+3. HTML5
+4. CSS3
+5. Cordova
 
-### Web Demo
-Try it quick [here](http://devgirl.org/files/phonegap-react/)
+
+### Demo
+You can test it out quickly in the web app version located [here](http://devgirl.org/files/phonegap-react/). Enter the desired search term  
+and criteria, then click **Show Results** to query the iTunes Search API. You can also set preferences as desired.  
 
 ![](resources/screenshots/search.png)
 ![](resources/screenshots/results.png)
 ![](resources/screenshots/details.png)
 
-###Quick Start
+### Quick Start
 1. Clone the project 
 2. Create a phonegap project 
     `$ phonegap create myApp`
@@ -21,15 +30,15 @@ Try it quick [here](http://devgirl.org/files/phonegap-react/)
 See the [PhoneGap Docs Quick Start](http://docs.phonegap.com/getting-started/2-install-mobile-app/) for more details on this process. 
 
 
-### Build Locally
+## Build Locally
 To build and preview locally, install the node dependences (`$ npm install`) and run the `gulp dev` task. It will build the app with 
 browserify, create the cordova assets (www etc) folder for mobile and start a preview server at [localhost:8000](http://localhost:8000). 
 
-###PhoneGap CLI Instructions
+### PhoneGap CLI Instructions
 1. `gulp dev`
 3. `phonegap run ios` (or `phonegap run android`)
 
-###Cordova CLI Instructions
+### Cordova CLI Instructions
 1. `gulp dev`
 2. `cordova platform add ios (or cordova platform add android)` 
 3. `cordova run` 
