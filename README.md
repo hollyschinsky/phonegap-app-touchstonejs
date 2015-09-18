@@ -1,16 +1,20 @@
 PhoneGap TouchstoneJS Sample App - iTunes Media Player
 ========================================================
 
-TouchstoneJS Sample App for PhoneGap. An iTunes Media Finder - search for songs, movies or videos and preview them in app or open in iTunes.
+TouchstoneJS Sample App for PhoneGap. An iTunes Media Finder - search for songs, movies or videos and preview them in app or open in iTunes. 
+
+### Web Demo
+Try it quick [here](http://devgirl.org/files/phonegap-react/)
 
 ![](resources/screenshots/search.png)
 ![](resources/screenshots/results.png)
+![](resources/screenshots/details.png)
 
 ###Quick Start
 1. Clone the project 
 2. Create a phonegap project 
     `$ phonegap create myApp`
-3. Replace the `www` folder with the `www` folder in the project cloned from step 1
+3. Replace the `www` folder with the `www` folder from the project cloned in step 1
 4. *Serve* the app via the PhoneGap CLI (`$ phonegap serve`) or via PhoneGap Desktop
 5. Consume the app with the PhoneGap Developer app on your mobile device
 
@@ -30,12 +34,12 @@ browserify, create the cordova assets (www etc) folder for mobile and start a pr
 2. `cordova platform add ios (or cordova platform add android)` 
 3. `cordova run` 
 
+![](resources/screenshots/splash.png)
 ![](resources/screenshots/search.png)
 ![](resources/screenshots/results.png)
-![](resources/screenshots/details.png)
 ![](resources/screenshots/prefs.png)
 ![](resources/screenshots/about.png)
 ![](resources/screenshots/spinner.png)
-![](resources/screenshots/splash.png)
+
 
 
