@@ -56,7 +56,7 @@ module.exports = React.createClass({
 		this.setState(newState);
 	},
 
-	showResults(event) {
+	showResults() {
 		this.context.app.transitionTo('tabs:media-list',
 			{transition: 'show-from-right',viewProps:{prevView: 'criteria', mediaType: this.state.mediaType, searchTerm: this.state.searchTerm,
 				numResults: this.state.numResults}})
@@ -79,7 +79,7 @@ module.exports = React.createClass({
 						<UI.RadioList value={this.state.numResults} onChange={this.handleResultsChange.bind(this, 'numResults')} options={RESULTS}/>
 					</UI.GroupBody>
 				</UI.Group>
-				<UI.Button onTap={this.showResults.bind(this)} type="primary">Show Results</UI.Button>
+				<UI.Button onTap={this.showResults} type="primary">Show Results</UI.Button>
 			</Container>
 		);
 	}
