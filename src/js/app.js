@@ -88,7 +88,7 @@ var TabViewController = React.createClass({
 		return {
 			selectedTab: lastSelectedTab,
 			preferences: {
-				mediaType: 'song',
+				mediaType: 'musicVideo',
 				numResults: '25'
 			}
 		};
