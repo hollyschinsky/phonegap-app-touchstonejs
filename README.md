@@ -1,4 +1,4 @@
-PhoneGap Sample App using ReactJS/TouchstoneJS 
+PhoneGap Sample App - ReactJS
 ==============================================
 This sample app is an iTunes Media Finder app built with ReactJS and TouchstoneJS. TouchstoneJS is a mobile UI framework built on top of 
 ReactJS/HTML5/CSS3 and Cordova. The sample allows you to search for songs, music videos or movies and preview them or open a result in iTunes. 
@@ -23,11 +23,14 @@ and criteria, then click **Show Results** to query the iTunes Search API. You ca
 1. Clone the project 
 2. Create a phonegap project 
     `$ phonegap create myApp`
-3. Replace the `www` folder and the `config.xml` file with the `www` folder and `config.xml` from my sample project cloned in step 1
-4. *Serve* the app via the PhoneGap CLI (`$ phonegap serve`) or via PhoneGap Desktop
-5. Consume the app with the PhoneGap Developer app on your mobile device
+3. Replace the `www` folder and the `config.xml` file with the `www` folder and `config.xml` from my sample project cloned in step 1. Also copy in the 
+`resources` folder for the custom icons and splash screens to be used. 
+4. *Serve* the app via the PhoneGap CLI (`$ phonegap serve`) or via the [PhoneGap Desktop Application](https://github.com/phonegap/phonegap-app-desktop)
+5. Open the PhoneGap Developer app on your mobile device (availabel from app stores) and connect to the IP Address your app was served on. 
 
-See the [PhoneGap Docs Quick Start](http://docs.phonegap.com/getting-started/2-install-mobile-app/) for more details on this process. 
+See the [PhoneGap Docs Quick Start](http://docs.phonegap.com/getting-started/2-install-mobile-app/) for more details on this process.
+ 
+ 
 
 ### Overview
 If you want to make changes on your own you'll need to 
