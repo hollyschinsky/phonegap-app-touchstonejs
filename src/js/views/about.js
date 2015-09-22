@@ -64,8 +64,8 @@ module.exports = React.createClass({
                     <UI.Item>
                         <UI.ItemInner>
                             <UI.ItemContent>
-                                <img src="img/react2.png" className="avatar"/>
-                                <img src="img/ts-icon.png" className="avatar"/>
+                                <img src="img/react-logo.png" className="avatar"/>
+                                <img src="img/ts-logo.png" className="avatar"/>
                                 <img src="img/pg-logo.png" className="avatar"/>
                             </UI.ItemContent>
                             </UI.ItemInner>
