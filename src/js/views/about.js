@@ -3,11 +3,16 @@ import React from 'react';
 import Tappable from 'react-tappable';
 import { Link, UI } from 'touchstonejs';
 
+const scrollable = Container.initScrollable();
+
 module.exports = React.createClass({
     statics: {
         navigationBar: 'main',
-        getNavigation () {
+        getNavigation (props,app) {
             return {
+                leftArrow: true,
+                leftLabel: 'Back',
+                leftAction: () => { app.transitionTo('tabs:' + props.prevView, { transition: 'reveal-from-right'}) },
                 title: 'About'
             }
         }
@@ -18,12 +23,12 @@ module.exports = React.createClass({
         if (!window.cordova)
             window.open(projectUrl)
         else
-            cordova.InAppBrowser.open(projectUrl,"_blank");
+            window.open(projectUrl,"_blank");
     },
 
     render: function () {
         return (
-            <Container>
+            <Container scrollable={scrollable}>
                 <UI.Group>
                     <UI.GroupHeader className="text-primary">App Details</UI.GroupHeader>
                     <UI.ListHeader>iTunes Media Finder</UI.ListHeader>
@@ -52,7 +57,6 @@ module.exports = React.createClass({
                                 </UI.ItemContent>
                             </UI.ItemInner>
                         </UI.Item>
-
                     </UI.GroupBody>
                 </UI.Group>
                 <UI.Group>

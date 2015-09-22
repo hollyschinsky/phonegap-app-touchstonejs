@@ -88,8 +88,8 @@ var TabViewController = React.createClass({
 		return {
 			selectedTab: lastSelectedTab,
 			preferences: {
-				mediaType: 'musicVideo',
-				numResults: '25'
+				mediaType: 'song',
+				numResults: '15'
 			}
 		};
 	},
@@ -138,13 +138,16 @@ var TabViewController = React.createClass({
 });
 
 function startApp () {
+	// Catch-all error handling
+	window.error = function(e) { console.log('** Error: ' + e.message); };
 
-	// Handle any cordova needs here
+	// Handle any Cordova needs here
 
-	// If splash screen plugin is loaded and config.xml prefs have AutoHideSplashScreen set to false for iOS we need to
-	// programatically hide it here. Could include in a timeout if needed to load more resources or see a white screen
+	// If the splash screen plugin is loaded and config.xml prefs have AutoHideSplashScreen set to false for iOS we need to
+	// programatically hide it here. You could also include in a timeout if needed to load more resources or see a white screen
 	// display in between splash screen and app load. Remove or change as needed. Left timeout code for reference, timeout
 	// not needed in this case.
+
 	if (navigator.splashscreen) {
 		//setTimeout(function () {
 			navigator.splashscreen.hide();

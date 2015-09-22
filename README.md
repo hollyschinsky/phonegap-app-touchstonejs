@@ -1,7 +1,7 @@
 PhoneGap Sample App using ReactJS/TouchstoneJS 
 ==============================================
 This sample app is an iTunes Media Finder app built with ReactJS and TouchstoneJS. TouchstoneJS is a mobile UI framework built on top of 
-ReactJS/HTML5/CSS3 and Cordova. The sample allows you to search for songs, music videos or movies and preview them or open in iTunes. 
+ReactJS/HTML5/CSS3 and Cordova. The sample allows you to search for songs, music videos or movies and preview them or open a result in iTunes. 
 
 ### Built with
 1. ReactJS
@@ -12,7 +12,7 @@ ReactJS/HTML5/CSS3 and Cordova. The sample allows you to search for songs, music
 
 
 ### Demo
-You can test it out quickly in the web app version located [here](http://devgirl.org/files/phonegap-react/). Enter the desired search term  
+You can try it out quickly in the web app version located [here](http://devgirl.org/files/phonegap-react/). Enter the desired search term  
 and criteria, then click **Show Results** to query the iTunes Search API. You can also set preferences as desired.  
 
 ![](resources/screenshots/search.png)
@@ -29,6 +29,8 @@ and criteria, then click **Show Results** to query the iTunes Search API. You ca
 
 See the [PhoneGap Docs Quick Start](http://docs.phonegap.com/getting-started/2-install-mobile-app/) for more details on this process. 
 
+### Overview
+If you want to make changes on your own you'll need to 
 
 ## Build Locally
 To build and preview locally, install the node dependences (`$ npm install`) and run the `gulp dev` task. It will build the app with 

@@ -6298,6 +6298,10 @@ hr.dotted {
   flex: 1 1 0;
   position: relative;
 }
+.Switch {
+  display: inline-block;
+  margin: 0px;
+}
 .MediaDetails {
   padding: 2em;
 }
@@ -6378,7 +6382,9 @@ hr.dotted {
 }
 audio {
   background-color: #FFFFFF;
-  min-width: 100%;
+}
+video {
+  width: 150px;
 }
 .NavigationBar {
   color: white;

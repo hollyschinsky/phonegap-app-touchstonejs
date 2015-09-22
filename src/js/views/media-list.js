@@ -12,6 +12,12 @@ var SimpleLinkItem = React.createClass({
 		item: React.PropTypes.object.isRequired
 	},
 
+	getDefaultProps () {
+		return {
+			prevView: 'media-list'
+		}
+	},
+
 	render () {
 		let item = this.props.item;
 		let className = "video__avatar_sm";
@@ -22,7 +28,7 @@ var SimpleLinkItem = React.createClass({
 			className = "movie__avatar_sm";
 
 			return (
-			<Link to="tabs:media-details" transition="show-from-right" viewProps={{ item: this.props.item, prevView: 'media-list'}} >
+			<Link to="tabs:media-details" transition="show-from-right" viewProps={{ item: this.props.item, prevView: this.props.prevView}} >
 				<UI.Item showDisclosureArrow>
 					<img src={item.artworkUrl60} className={className}/>
 					<UI.ItemInner>
@@ -46,7 +52,7 @@ module.exports = React.createClass({
 			return {
 				leftArrow: true,
 				leftLabel: 'Criteria',
-				leftAction: () => { app.transitionTo('tabs:criteria', { transition: 'reveal-from-right' }) },
+				leftAction: () => { app.transitionTo('tabs:criteria', { transition: 'reveal-from-right',  viewProps: {prevView:'media-list'}}) },
 				title: 'Media Results'
 			}
 		}
@@ -184,7 +190,7 @@ module.exports = React.createClass({
 			<Container ref="scrollContainer" scrollable={scrollable}>
 				<UI.Alertbar type={alertbar.type || 'default'} visible={alertbar.visible} animated>{alertbar.text}</UI.Alertbar>
 				<UI.SearchField type="dark" value={this.state.filterString} onSubmit={this.submitFilter} onChange={this.updateFilter}
-				onCancel={this.clearFilter} onClear={this.clearFilter} placeholder="Filter..." />
+				  onCancel={this.clearFilter} onClear={this.clearFilter} placeholder="Filter..." />
 				{results}
 				<UI.Popup visible={this.state.popup.visible}>
 					<UI.PopupIcon name={this.state.popup.iconName} type={this.state.popup.iconType} spinning={this.state.popup.loading} />

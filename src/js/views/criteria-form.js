@@ -25,7 +25,7 @@ module.exports = React.createClass({
 			return {
 				title: 'Search Criteria',
 				leftArrow: false,
-				rightAction: () => { app.transitionTo('tabs:about', { transition: 'fade-expand' }) },
+				rightAction: () => { app.transitionTo('tabs:about', { transition: 'fade-expand', viewProps: {prevView:'criteria'}}) },
 				rightIcon: 'ion-information-circled'
 			}
 		}
@@ -35,7 +35,7 @@ module.exports = React.createClass({
 		return {
 			mediaType: this.props.preferences.mediaType,
 			numResults: this.props.preferences.numResults,
-			searchTerm: 'Ed Sheeran'
+			searchTerm: 'Pink'
 		}
 	},
 
@@ -56,11 +56,11 @@ module.exports = React.createClass({
 		this.setState(newState);
 	},
 
+
 	showResults() {
 		this.context.app.transitionTo('tabs:media-list',
 			{transition: 'show-from-right',viewProps:{prevView: 'criteria', mediaType: this.state.mediaType, searchTerm: this.state.searchTerm,
 				numResults: this.state.numResults}})
-
 	},
 
 	render () {
@@ -70,7 +70,7 @@ module.exports = React.createClass({
 					<UI.GroupHeader>Search Criteria</UI.GroupHeader>
 					<UI.GroupBody>
 						<UI.LabelSelect label="Type" onChange={this.handleTypeChange.bind(this,'mediaType')} value={this.state.mediaType} options={MEDIA_TYPES} />
-						<UI.LabelInput label="Search term"  value={this.state.searchTerm} placeholder="search term" onChange={this.handleSearchTermChange.bind(this, 'searchTerm')}  />
+						<UI.LabelInput label="Search for"  value={this.state.searchTerm} placeholder="search term" onChange={this.handleSearchTermChange.bind(this, 'searchTerm')}  />
 					</UI.GroupBody>
 				</UI.Group>
 				<UI.Group>

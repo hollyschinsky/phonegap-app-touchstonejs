@@ -19,6 +19,7 @@ module.exports = React.createClass({
     statics: {
         navigationBar: 'main',
         getNavigation (props,app) {
+            // This is a separate tab and view stack with just one view currently
             return {
                 title: 'Preferences'
             }

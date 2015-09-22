@@ -5,34 +5,30 @@ import Container from 'react-container';
 import React from 'react';
 import { Link, UI } from 'touchstonejs';
 
-const scrollable = Container.initScrollable();
+const scrollable = Container.initScrollable({ left: 0, top: 44});
 
 module.exports = React.createClass({
     statics: {
         navigationBar: 'main',
         getNavigation (props, app) {
-            var leftLabel = 'List';
             return {
                 leftArrow: true,
-                leftLabel: leftLabel,
+                leftLabel: 'List',
                 leftAction: () => { app.transitionTo('tabs:' + props.prevView, { transition: 'reveal-from-right' }) },
                 title: 'Details'
             }
         }
     },
 
-    getDefaultProps () {
-        return {
-            prevView: 'media-details'
-        }
-    },
-
     openURL (event) {
         var mediaUrl = this.props.item.trackViewUrl;
-        if (!window.cordova)
+
+        if (!window.cordova) {
             window.open(mediaUrl)
-        else
-            cordova.InAppBrowser.open(mediaUrl,"_blank");
+        }
+        else {
+            window.open(mediaUrl,"_blank")
+        }
     },
 
     render () {
@@ -53,19 +49,18 @@ module.exports = React.createClass({
             className = "movie__avatar";
         }
 
-
         return (
-            <Container scrollable={scrollable}>
+            <Container ref="scrollContainer" scrollable={scrollable}>
                 <UI.Group>
                     <UI.GroupHeader className="text-primary">{item.kind}</UI.GroupHeader>
                     <UI.GroupBody>
                         <img src={item.artworkUrl100} className={className}/>
-                        <UI.LabelInput readOnly label="Item Name" value={item.trackName}/>
+                        <UI.LabelInput readOnly label="Name" value={item.trackName}/>
                         <UI.LabelInput readOnly label="Artist" value={item.artistName}/>
                         <UI.LabelInput readOnly label="Genre" value={item.primaryGenreName}/>
                         <UI.LabelInput readOnly label="Collection" value={item.collectionName}/>
-                        <UI.LabelInput readOnly label="Item Price" value={item.trackPrice}/>
                         <UI.LabelInput readOnly label="Released" value={item.releaseDate}/>
+                        <UI.LabelInput readOnly label="Item Price" value={item.trackPrice!=null?item.trackPrice.toString():item.trackPrice}/>
                         <UI.Item>
                             <UI.ItemInner>
                                 <UI.FieldLabel>Explicit?</UI.FieldLabel>
@@ -78,7 +73,7 @@ module.exports = React.createClass({
                             </UI.ItemInner>
                         </UI.Item>
                         <UI.Item style={{display:videoVal}}> 
-                            <video controls width="350" src={item.previewUrl} type="video/mp4"> 
+                            <video controls src={item.previewUrl} type="video/mp4"> 
                             </video>
                          </UI.Item>
                         <UI.Item>
