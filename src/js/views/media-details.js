@@ -60,7 +60,7 @@ module.exports = React.createClass({
                         <UI.LabelInput readOnly label="Genre" value={item.primaryGenreName}/>
                         <UI.LabelInput readOnly label="Collection" value={item.collectionName}/>
                         <UI.LabelInput readOnly label="Released" value={item.releaseDate}/>
-                        <UI.LabelInput readOnly label="Item Price" value={item.trackPrice!=null?item.trackPrice.toString():item.trackPrice}/>
+                        <UI.LabelInput readOnly label="Item Price" value={item.trackPrice!=-1?item.trackPrice.toString():""}/>
                         <UI.Item>
                             <UI.ItemInner>
                                 <UI.FieldLabel>Explicit?</UI.FieldLabel>

@@ -47,7 +47,10 @@ module.exports = React.createClass({
 	
 	handleTypeChange (key, event) {
 		this.state.mediaType = event.target.value;
-		event.stopPropagation(); // won't stay selected if I don't stop it from propagated - may be bug in LabelSelect
+		// The select field won't show the updated value on the web if i don't do preventBubble() and it won't show the updated value on device
+		// if don't do stopPropagation. Need to figure out why but this fixes it for both.
+		event.preventBubble();
+		event.stopPropagation();
 	},
 
 	handleSearchTermChange (key, event) {

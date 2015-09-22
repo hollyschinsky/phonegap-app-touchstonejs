@@ -6,7 +6,7 @@ import {
 	View,
 	ViewManager
 } from 'touchstonejs';
-
+// ------------------------------
 // App Config
 // ------------------------------
 
@@ -41,7 +41,7 @@ var App = React.createClass({
 		);
 	}
 });
-
+// ------------------------------
 // Main Controller
 // ------------------------------
 var MainViewController = React.createClass({
@@ -56,14 +56,12 @@ var MainViewController = React.createClass({
 		);
 	}
 });
-
+// ------------------------------
 // Tab View Controller
 // ------------------------------
 
 var lastSelectedTab = 'criteria'
 var TabViewController = React.createClass({
-
-
 	onViewChange (nextView) {
 		lastSelectedTab = nextView
 
@@ -138,15 +136,12 @@ var TabViewController = React.createClass({
 });
 
 function startApp () {
-	// Catch-all error handling
-	window.error = function(e) { console.log('** Error: ' + e.message); };
-
-	// Handle any Cordova needs here
+	// Handle any Cordova needs here now that deviceReady has fired...
 
 	// If the splash screen plugin is loaded and config.xml prefs have AutoHideSplashScreen set to false for iOS we need to
 	// programatically hide it here. You could also include in a timeout if needed to load more resources or see a white screen
-	// display in between splash screen and app load. Remove or change as needed. Left timeout code for reference, timeout
-	// not needed in this case.
+	// display in between splash screen and app load. Remove or change as needed. Timeout not needed in this case but left for
+	// reference.
 
 	if (navigator.splashscreen) {
 		//setTimeout(function () {
